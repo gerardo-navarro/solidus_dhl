@@ -1,0 +1,22 @@
+<% if can? :show, Spree::Order %>
+  <% if @order && @order.completed_at? %>
+
+    <% title = Spree.t("create_dhl_shipment_slip", scope: [:buttons], default: 'Create New DHL Shipment') %>
+    <li>
+        <%= link_to_with_icon 'file', title, "/admin/orders/#{@order.id}/shipment/create_dhl_shipment", title: title, target: :blank %>
+        <!-- link_to "Profile", :controller => "profiles", :action => "show", :id => @profile -->
+    </li>
+
+    <!-- Printing (or rather accessing) the slip that should be sticked on the shipment -->
+    <% title = Spree.t("print_dhl_shipment_slip", scope: [:buttons], default: 'Print DHL Shipment Slip') %>
+    <li>
+        <%= link_to_with_icon 'file', title, "/admin/orders/#{@order.id}/shipment/get_dhl_shipment_label", title: title, target: :blank %>
+    </li>
+
+    <% title = Spree.t("create_dhl_return_slip", scope: [:buttons], default: 'Create New DHL Return Label') %>
+    <li>
+        <%= link_to_with_icon 'file', title, "/admin/orders/#{@order.id}/shipment/create_dhl_return", title: title, target: :blank %>
+        <!-- link_to "Profile", :controller => "profiles", :action => "show", :id => @profile -->
+    </li>
+  <% end %>
+<% end %>
