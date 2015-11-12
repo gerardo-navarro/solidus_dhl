@@ -1,0 +1,9 @@
+machine:
+  ruby:
+    version: 2.1.2
+
+database:
+  override:
+    - cd spec/dummy; cp config/application.yml.default config/application.yml
+    - cd spec/dummy; RAILS_ENV=test bundle exec rake db:migrate
+    - cd spec/dummy; bundle exec rake db:test:prepare

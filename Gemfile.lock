@@ -398,7 +398,7 @@ DEPENDENCIES
   pg
   pry-rails
   pry-stack_explorer
-  rspec-rails (~> 3.3)
+  rspec-rails
   sass-rails (~> 4.0.2)
   selenium-webdriver
   show_me_the_cookies (~> 3.0.0)

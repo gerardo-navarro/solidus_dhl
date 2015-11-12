@@ -1,4 +1,4 @@
-## Solidus DHL ##
+## Solidus DHL [![Build Status](https://travis-ci.org/gerardo-navarro/solidus_dhl.svg?branch=master)](https://travis-ci.org/gerardo-navarro/solidus_dhl) ##
 
 Solidus DHL integrate the DHL Intraship API with the solidus system.
 
