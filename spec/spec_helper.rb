@@ -23,23 +23,32 @@ require 'rspec/rails'
 #require 'rspec/active_model/mocks'
 require 'database_cleaner'
 require 'ffaker'
-require 'pry'
-require 'capybara/rspec'
-require 'capybara/rails'
-#require 'capybara-screenshot/rspec'
-require "show_me_the_cookies"
+require 'show_me_the_cookies'
 
+
+# In case we have any coffeescript or sass files ...
+# Do not forget to add following gems to Gemfile:
+# gem 'coffee-rails'
+# gem 'sass-rails', '~> 4.0.2'
 # To stop these warnings:
 # WARN: tilt autoloading 'sass' in a non thread-safe way; explicit require 'sass' suggested.
 # WARN: tilt autoloading 'coffee_script' in a non thread-safe way; explicit require 'coffee_script' suggested.
-require 'coffee_script'
-require 'sass'
+# require 'coffee_script'
+# require 'sass'
 
 
-#require 'capybara/poltergeist'
+# In case we want to do capybara and selenium tests.
+# Do not forget to add following gems to Gemfile:
+# gem 'capybara'
+# gem 'selenium-webdriver'
+# gem poltergeist
 
-Capybara.javascript_driver = :poltergeist
-Capybara.default_max_wait_time = 15
+# require 'capybara/rspec'
+# require 'capybara/rails'
+# require 'capybara-screenshot/rspec'
+# require 'capybara/poltergeist'
+# Capybara.javascript_driver = :poltergeist
+# Capybara.default_max_wait_time = 15
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 

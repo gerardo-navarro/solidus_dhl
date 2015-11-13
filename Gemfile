@@ -1,9 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'sqlite3'
-gem 'pg'
-gem 'figaro'
-
-gem "rspec-rails"
 
 gemspec
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'figaro'
+
+  gem 'rspec-rails'
+
+  gem 'show_me_the_cookies', '~> 3.0.0'
+  gem 'database_cleaner', '1.0.1'
+  gem 'ffaker'
+
+  gem 'simplecov'
+  gem 'simplecov-rcov'
+  
+end

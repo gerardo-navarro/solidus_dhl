@@ -4,7 +4,10 @@ PATH
     solidus_dhl (0.0.2)
       dhl-intraship
       figaro (~> 1.1.1)
+      solidus_auth_devise (~> 1.2)
+      solidus_backend (~> 1.0)
       solidus_core (~> 1.0)
+      solidus_sample (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -58,22 +61,13 @@ GEM
     arel (6.0.3)
     awesome_nested_set (3.0.2)
       activerecord (>= 4.0.0, < 5)
-    awesome_print (1.6.1)
     bcrypt (3.1.10)
-    better_errors (2.1.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
     builder (3.2.2)
     camertron-eprun (1.1.0)
     cancancan (1.10.1)
-    canonical-rails (0.0.11)
-      rails (>= 3.1, < 5.0)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -82,26 +76,15 @@ GEM
       xpath (~> 2.0)
     carmen (1.0.2)
       activesupport (>= 3.0.0)
-    childprocess (0.5.7)
-      ffi (~> 1.0, >= 1.0.11)
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
-    coderay (1.1.0)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     css_parser (1.3.7)
       addressable
     database_cleaner (1.0.1)
-    debug_inspector (0.0.2)
     deface (1.0.1)
       colorize (>= 0.5.8)
       nokogiri (~> 1.6.0)
@@ -121,14 +104,12 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
-    execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     ffaker (1.32.1)
-    ffi (1.9.10)
     figaro (1.1.1)
       thor (~> 0.14)
     font-awesome-rails (4.4.0.0)
@@ -159,7 +140,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.2)
@@ -179,7 +159,6 @@ GEM
       mime-types
     paranoia (2.1.4)
       activerecord (~> 4.0)
-    pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -189,15 +168,6 @@ GEM
     premailer-rails (1.8.2)
       actionmailer (>= 3, < 5)
       premailer (~> 1.7, >= 1.7.9)
-    pry (0.10.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
-    pry-rails (0.3.4)
-      pry (>= 0.9.10)
-    pry-stack_explorer (0.4.9.2)
-      binding_of_caller (>= 0.7)
-      pry (>= 0.9.11)
     rabl (0.11.6)
       activesupport (>= 2.3.14)
     rack (1.6.4)
@@ -253,13 +223,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rubyzip (1.1.7)
     sass (3.2.19)
-    sass-rails (4.0.5)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.2)
-      sprockets (~> 2.8, < 3.0)
-      sprockets-rails (~> 2.0)
     savon (1.1.0)
       akami (~> 1.2.0)
       builder (>= 2.1.2)
@@ -270,11 +234,6 @@ GEM
       wasabi (~> 2.5.0)
     select2-rails (3.5.9.1)
       thor (~> 0.14)
-    selenium-webdriver (2.48.1)
-      childprocess (~> 0.5)
-      multi_json (~> 1.0)
-      rubyzip (~> 1.0)
-      websocket (~> 1.0)
     show_me_the_cookies (3.0.0)
       capybara (~> 2.0)
     simplecov (0.10.0)
@@ -284,13 +243,6 @@ GEM
     simplecov-html (0.10.0)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slop (3.6.0)
-    solidus (1.0.2)
-      solidus_api (= 1.0.2)
-      solidus_backend (= 1.0.2)
-      solidus_core (= 1.0.2)
-      solidus_frontend (= 1.0.2)
-      solidus_sample (= 1.0.2)
     solidus_api (1.0.2)
       rabl (>= 0.9.4.pre1, < 0.12.0)
       solidus_core (= 1.0.2)
@@ -332,11 +284,6 @@ GEM
       stringex (~> 1.5.1)
       truncate_html (= 0.9.2)
       twitter_cldr (~> 3.0)
-    solidus_frontend (1.0.2)
-      canonical-rails (~> 0.0.4)
-      jquery-rails
-      solidus_api (= 1.0.2)
-      solidus_core (= 1.0.2)
     solidus_sample (1.0.2)
       solidus_core (= 1.0.2)
     sprockets (2.12.4)
@@ -378,7 +325,6 @@ GEM
     wasabi (2.5.1)
       httpi (~> 1.0)
       nokogiri (>= 1.4.0)
-    websocket (1.2.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -386,28 +332,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
-  better_errors
-  binding_of_caller
   capybara
-  coffee-rails
   database_cleaner (= 1.0.1)
   factory_girl_rails
   ffaker
   figaro
-  pg
-  pry-rails
-  pry-stack_explorer
   rspec-rails
-  sass-rails (~> 4.0.2)
-  selenium-webdriver
   show_me_the_cookies (~> 3.0.0)
   simplecov
   simplecov-rcov
-  solidus (~> 1.0)
-  solidus_auth_devise (~> 1.2)
   solidus_dhl!
-  solidus_sample (~> 1.0)
   sqlite3
 
 BUNDLED WITH

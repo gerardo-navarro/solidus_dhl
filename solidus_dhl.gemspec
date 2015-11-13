@@ -17,35 +17,14 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "solidus_core", "~> 1.0"
-
-  s.add_development_dependency "solidus", "~> 1.0"
-  s.add_development_dependency "solidus_auth_devise", "~> 1.2"
-  s.add_development_dependency "solidus_sample", "~> 1.0"
-
-
-  s.add_development_dependency 'coffee-rails'
-  s.add_development_dependency 'show_me_the_cookies', '~> 3.0.0'
-  s.add_development_dependency 'database_cleaner', '1.0.1'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'sass-rails', '~> 4.0.2'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'simplecov-rcov'
-  s.add_development_dependency 'better_errors'
-  s.add_development_dependency 'binding_of_caller'
-
-  s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'pry-stack_explorer'
-  s.add_development_dependency 'awesome_print'
-
-
-
-
   # -------------------------------------------- Frontend --------------------------------------------
 
   # -------------------------------------------- Backend --------------------------------------------
-
+  # s.add_dependency "solidus", "~> 1.0"
+  s.add_dependency "solidus_core", "~> 1.0"
+  s.add_dependency "solidus_backend", "~> 1.0"
+  s.add_dependency "solidus_auth_devise", "~> 1.2"
+  s.add_dependency "solidus_sample", "~> 1.0"
   s.add_dependency 'dhl-intraship'
 
   # -------------------------------------------- Deployment --------------------------------------------
