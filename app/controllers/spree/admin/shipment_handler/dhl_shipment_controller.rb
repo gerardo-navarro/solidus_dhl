@@ -3,6 +3,7 @@ module Spree
     module ShipmentHandler
 
       class DhlShipmentController < Spree::Admin::BaseController
+        # rescue_from ::SolidusDhl::Errors::SolidusDhlError, with: :render_error
 
 
         def create_dhl_return
@@ -28,7 +29,17 @@ module Spree
           order_id = params[:order_id]
           @order   = Spree::Order.find(order_id)
 
-          sender_address =
+          if @order.shipments.empty?
+            error = { error: '@order.shipments cannot be empty' }
+            # flash[:error] = error[:error]
+            render json: error, status: 500
+            return
+            # raise Solidus::Errors::SolidusDhlError.new '@order.shipments cannot be empty'
+          end
+
+          if @order.order_stock_locations.empty?
+
+            sender_address =
               Dhl::Intraship::CompanyAddress.new(company:        'Vecommerce',
                                                  contact_person: 'Markt der Zukunft',
                                                  street:         'Überseering',
@@ -37,30 +48,17 @@ module Spree
                                                  city:           'Hamburg',
                                                  country_code:   'DE',
                                                  email:          'info@vecommerce.net')
+          else
+            sender_address = SolidusDhl::Client::SpreeAddressConverter.convert(@order.order_stock_locations.stock_location)
+          end
 
-          order_ship_address = @order.ship_address
-
-          receiver_address   =
-              Dhl::Intraship::PersonAddress.new(firstname:         order_ship_address.firstname,
-                                                lastname:          order_ship_address.lastname,
-                                                street:            order_ship_address.address1,
-                                                house_number:      '10',
-                                                street_additional: order_ship_address.address2,
-                                                zip:               order_ship_address.zipcode,
-                                                city:              order_ship_address.city,
-                                                country_code:      order_ship_address.country.iso,
-                                                email:             'john.doe@example.com')
+          receiver_address = SolidusDhl::Client::SpreeAddressConverter.convert(@order.ship_address)
 
           # Use can use multiple parcels per shipment. Note that the weight
           # parameter is in kg and the length/height/width in cm
-          shipments          = []
-          (1..@order.shipments.count).each do |shipment_no|
-            shipment_item =
-                Dhl::Intraship::ShipmentItem.new(weight: 3,
-                                                 length: 120,
-                                                 width:  60,
-                                                 height: 60)
-            shipments << shipment_item
+          shipments = @order.shipments.map do | order_shipment |
+            # The order shipment is not necessary at the moment, but it will be in future
+            Dhl::Intraship::ShipmentItem.new(weight: 3, length: 120, width: 60, height: 60)
           end
 
           shipment =
@@ -74,12 +72,12 @@ module Spree
           raise 'label_url not returned' unless result[:label_url]
 
           @order.shipments.each do |shipment|
-            shipment.dhl_label       = result[:label_url]
-            shipment.shipment_number = result[:shipment_number]
-            shipment.tracking        = result[:shipment_number]
-            shipment.save
+            shipment.update({
+              dhl_label:        result[:label_url],
+              shipment_number:  result[:shipment_number],
+              tracking:         result[:shipment_number]
+            })
           end
-
 
           redirect_to result[:label_url]
 
@@ -97,8 +95,11 @@ module Spree
 
         end
 
-      end
+        def render_error(error)
+          render(json: error, status: error.status)
+        end
 
+      end
     end
   end
 end

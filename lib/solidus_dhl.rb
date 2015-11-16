@@ -1,5 +1,7 @@
 require 'spree_core'
 require 'solidus_dhl/engine'
+require 'solidus_dhl/errors/solidus_dhl_error'
+require 'solidus_dhl/client/spree_address_converter'
 
 require 'dhl-intraship/version'
 require 'dhl-intraship/api'
