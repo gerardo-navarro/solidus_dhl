@@ -8,6 +8,9 @@ spec/dummy/tmp/
 spec/dummy/.sass-cache
 spec/dummy/config/application.yml
 
+coverage
+tmp
+
 .ruby-version
 .ruby-gemset
 

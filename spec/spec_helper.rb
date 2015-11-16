@@ -1,16 +1,18 @@
-if ENV["COVERAGE"]
-  exlist = Dir.glob([
-    'db/**/*.rb',
-    'spec/**/*.rb'
-  ])
 
+# Save to CircleCI's artifacts directory if we're on CircleCI
+if ENV["CIRCLE_ARTIFACTS"]
+  # Run Coverage report
   require 'simplecov'
-  require 'simplecov-rcov'
-  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+  dir = File.join(ENV['CIRCLE_ARTIFACTS'], "coverage")
+  SimpleCov.coverage_dir(dir)
+
   SimpleCov.start do
-    exlist.each do |p|
-      add_filter p
-    end
+    add_group 'Controllers', 'app/controllers'
+    add_group 'Helpers', 'app/helpers'
+    add_group 'Mailers', 'app/mailers'
+    add_group 'Models', 'app/models'
+    add_group 'Views', 'app/views'
+    add_group 'Libraries', 'lib'
   end
 end
 
