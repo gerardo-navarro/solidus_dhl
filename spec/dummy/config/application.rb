@@ -10,23 +10,23 @@ begin
 rescue LoadError
   # spree_frontend is not available.
 end
-      
+
 begin
   require 'spree_backend'
 rescue LoadError
   # spree_backend is not available.
 end
-      
+
 begin
   require 'spree_api'
 rescue LoadError
   # spree_api is not available.
 end
-      require 'solidus_dhl'
+require 'solidus_dhl'
 
 module Dummy
   class Application < Rails::Application
-    
+
     config.to_prepare do
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|

@@ -2,5 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   RunRailsCops: true
+  Exclude:
+    - spec/dummy/**/*
 Documentation: # Disabling documentation cop
   Enabled: false

@@ -17,6 +17,7 @@ class AddNumberToStockTransfer < ActiveRecord::Migration
     add_index :spree_stock_transfers, :destination_location_id
   end
 
+
   def down
     rename_column :spree_stock_transfers, :reference, :reference_number
     remove_column :spree_stock_transfers, :number, :string

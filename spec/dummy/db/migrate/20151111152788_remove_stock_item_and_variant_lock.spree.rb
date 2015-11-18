@@ -8,6 +8,7 @@ class RemoveStockItemAndVariantLock < ActiveRecord::Migration
     remove_column :spree_variants, :lock_version
   end
 
+
   def down
     add_column :spree_stock_items, :lock_version, :integer
     add_column :spree_variants, :lock_version, :integer

@@ -3,6 +3,7 @@ class DeleteInventoryUnitsWithoutShipment < ActiveRecord::Migration
   # Prevent everything from running in one giant transaction in postrgres.
   disable_ddl_transaction!
 
+
   def up
     order_ids = Spree::InventoryUnit.where(shipment_id: nil).pluck(:order_id).uniq.compact
     Spree::Order.where(id: order_ids).find_each do |order|
@@ -19,6 +20,7 @@ class DeleteInventoryUnitsWithoutShipment < ActiveRecord::Migration
       end
     end
   end
+
 
   def down
     # intentionally left blank

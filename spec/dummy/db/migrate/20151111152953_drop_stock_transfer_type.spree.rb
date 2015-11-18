@@ -5,6 +5,7 @@ class DropStockTransferType < ActiveRecord::Migration
     remove_column :spree_stock_transfers, :type
   end
 
+
   def down
     add_column :spree_stock_transfers, :type, :string
   end

@@ -6,6 +6,7 @@ class AddIdAndTimestampToPromotionRuleUser < ActiveRecord::Migration
     add_column :spree_promotion_rules_users, :updated_at, :datetime
   end
 
+
   def down
     remove_column :spree_promotion_rules_users, :updated_at
     remove_column :spree_promotion_rules_users, :created_at

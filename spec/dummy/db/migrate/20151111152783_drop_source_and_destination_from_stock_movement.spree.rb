@@ -7,6 +7,7 @@ class DropSourceAndDestinationFromStockMovement < ActiveRecord::Migration
     end
   end
 
+
   def down
     change_table :spree_stock_movements do |t|
       t.references :source, polymorphic: true

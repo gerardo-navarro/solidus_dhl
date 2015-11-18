@@ -12,6 +12,7 @@ class UpdateAdjustmentStates < ActiveRecord::Migration
     Spree::Adjustment.where(:state => nil).update_all(:state => 'open')
   end
 
+
   def down
   end
 end

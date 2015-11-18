@@ -4,6 +4,7 @@ class ChangeStatesRequiredForCountries < ActiveRecord::Migration
     change_column_default :spree_countries, :states_required, false
   end
 
+
   def down
     change_column_default :spree_countries, :states_required, true
   end

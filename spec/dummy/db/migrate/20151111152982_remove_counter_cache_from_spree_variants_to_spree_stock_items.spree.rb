@@ -6,6 +6,7 @@ class RemoveCounterCacheFromSpreeVariantsToSpreeStockItems < ActiveRecord::Migra
     end
   end
 
+
   def down
   end
 end

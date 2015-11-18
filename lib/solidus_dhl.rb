@@ -23,5 +23,5 @@ require 'dhl-intraship/service/higher_insurance_service'
 require 'dhl/return/api'
 
 module SolidusDhl
-  
+
 end

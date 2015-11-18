@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :solidus_dhl_ship_address, class: Spree::Address do
     firstname 'John'
     lastname 'Doe'
@@ -7,12 +8,10 @@ FactoryGirl.define do
     zipcode '14482'
     phone '0151 15133221'
     alternative_phone '0151 15133221'
-    
-    # state :state_brandenburg
-    state { | address | address.association(:state_brandenburg) }
 
-    # country :country_germany
-    country { | address | address.association(:country_germany) }
+    state { |address| address.association(:state_brandenburg) }
+
+    country { |address| address.association(:country_germany) }
   end
 
   factory :solidus_dhl_ship_address_with_umlauts, parent: :address do
@@ -20,14 +19,14 @@ FactoryGirl.define do
     address2 'Dachgeschoss Rechts'
     city 'Madgeburg'
     zipcode '33914'
-    state { | address | address.association(:state_schleswig_holstein) }
+    state { |address| address.association(:state_schleswig_holstein) }
   end
 
   factory :solidus_dhl_ship_address_with_letter_in_house_number, parent: :address do
     address1 'Birkhahnkamp 19b'
     city 'Norderstedt'
     zipcode '22846'
-    state { | address | address.association(:state_sachsen_anhalt) }
+    state { |address| address.association(:state_sachsen_anhalt) }
   end
 
   factory :country_germany, class: Spree::Country do
@@ -41,8 +40,7 @@ FactoryGirl.define do
   factory :state_brandenburg, class: Spree::State do
     name 'Brandenburg'
     abbr 'BR'
-    # country :country_germany
-    country { | state | state.association(:country_germany) }
+    country { |state| state.association(:country_germany) }
   end
 
   factory :state_schleswig_holstein, parent: :state_brandenburg do
@@ -54,6 +52,5 @@ FactoryGirl.define do
     name 'Sachsen-Anhalt'
     abbr 'SA'
   end
-
 
 end

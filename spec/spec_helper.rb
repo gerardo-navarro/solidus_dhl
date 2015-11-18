@@ -1,4 +1,3 @@
-
 # Save to CircleCI's artifacts directory if we're on CircleCI
 if ENV["CIRCLE_ARTIFACTS"]
   # Run Coverage report
@@ -19,7 +18,7 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+require File.expand_path('../dummy/config/environment.rb', __FILE__)
 
 require 'rspec/rails'
 #require 'rspec/active_model/mocks'
@@ -70,7 +69,7 @@ RSpec.configure do |config|
 
 
   config.mock_with :rspec
-  config.color = true
+  config.color                      = true
   config.use_transactional_fixtures = false
 
   config.before :suite do

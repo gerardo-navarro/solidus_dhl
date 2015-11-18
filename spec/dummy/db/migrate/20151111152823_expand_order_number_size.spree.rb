@@ -4,6 +4,7 @@ class ExpandOrderNumberSize < ActiveRecord::Migration
     change_column :spree_orders, :number, :string, :limit => 32
   end
 
+
   def down
     change_column :spree_orders, :number, :string, :limit => 15
   end

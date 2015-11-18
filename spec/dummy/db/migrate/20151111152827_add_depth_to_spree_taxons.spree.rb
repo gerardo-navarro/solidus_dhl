@@ -11,6 +11,7 @@ class AddDepthToSpreeTaxons < ActiveRecord::Migration
     end
   end
 
+
   def down
     remove_column :spree_taxons, :depth
   end

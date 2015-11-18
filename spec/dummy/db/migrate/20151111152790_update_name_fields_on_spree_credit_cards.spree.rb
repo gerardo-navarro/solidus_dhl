@@ -8,6 +8,7 @@ class UpdateNameFieldsOnSpreeCreditCards < ActiveRecord::Migration
     end
   end
 
+
   def down
     execute "UPDATE spree_credit_cards SET name = NULL"
   end

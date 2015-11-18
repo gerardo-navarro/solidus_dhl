@@ -22,6 +22,7 @@ class CreateDefaultStock < ActiveRecord::Migration
     remove_column :spree_variants, :count_on_hand
   end
 
+
   def down
     add_column :spree_variants, :count_on_hand, :integer
 

@@ -59,6 +59,7 @@ class MovePromotionCodeToPromotionCodeValue < ActiveRecord::Migration
     end
   end
 
+
   def down
     # We can't do a down migration because we can't tell which data was created
     # by this migration and which data already existed.

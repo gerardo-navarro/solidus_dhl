@@ -31,10 +31,8 @@ module Spree
 
           if @order.shipments.empty?
             error = { error: '@order.shipments cannot be empty' }
-            # flash[:error] = error[:error]
             render json: error, status: 500
             return
-            # raise Solidus::Errors::SolidusDhlError.new '@order.shipments cannot be empty'
           end
 
           if @order.order_stock_locations.empty?

@@ -4,6 +4,7 @@ class AddOrderIdIndexToPayments < ActiveRecord::Migration
     add_index :spree_payments, :order_id
   end
 
+
   def self.down
     remove_index :spree_payments, :order_id
   end

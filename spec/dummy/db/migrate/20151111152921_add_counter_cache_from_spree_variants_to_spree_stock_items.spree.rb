@@ -4,6 +4,7 @@ class AddCounterCacheFromSpreeVariantsToSpreeStockItems < ActiveRecord::Migratio
   def up
   end
 
+
   def down
   end
 end

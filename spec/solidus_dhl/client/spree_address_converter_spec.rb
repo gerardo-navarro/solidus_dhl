@@ -43,22 +43,23 @@ RSpec.describe SolidusDhl::Client::SpreeAddressConverter do
   end
 
   private
-    def assert_not_nil_fields(address)
-      expect(address.street).to_not be_nil
-      expect(address.house_number).to_not be_nil
-      expect(address.street_additional).to_not be_nil
-      expect(address.zip).to_not be_nil
-      expect(address.city).to_not be_nil
-    end
+  def assert_not_nil_fields(address)
+    expect(address.street).to_not be_nil
+    expect(address.house_number).to_not be_nil
+    expect(address.street_additional).to_not be_nil
+    expect(address.zip).to_not be_nil
+    expect(address.city).to_not be_nil
+  end
 
-    def general_assertions(address)
-      expect(address).to_not be_nil
-      expect(address).to be_a Dhl::Intraship::PersonAddress
-      expect(address.firstname).to eq 'John'
-      expect(address.lastname).to eq 'Doe'
-      expect(address.country_code).to eq 'DE'    
 
-      assert_not_nil_fields(address)
-    end
+  def general_assertions(address)
+    expect(address).to_not be_nil
+    expect(address).to be_a Dhl::Intraship::PersonAddress
+    expect(address.firstname).to eq 'John'
+    expect(address.lastname).to eq 'Doe'
+    expect(address.country_code).to eq 'DE'
+
+    assert_not_nil_fields(address)
+  end
 
 end

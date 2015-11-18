@@ -11,6 +11,7 @@ class AddShippingCategoryToShippingMethodsAndProducts < ActiveRecord::Migration
     Spree::Product.where(shipping_category_id: nil).update_all(shipping_category_id: default_category.id)
   end
 
+
   def down
   end
 end

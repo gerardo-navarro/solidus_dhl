@@ -6,6 +6,7 @@ class DefaultVariantWeightToZero < ActiveRecord::Migration
     change_column :spree_variants, :weight, :decimal, precision: 8, scale: 2, default: 0.0
   end
 
+
   def down
     change_column :spree_variants, :weight, :decimal, precision: 8, scale: 2
   end

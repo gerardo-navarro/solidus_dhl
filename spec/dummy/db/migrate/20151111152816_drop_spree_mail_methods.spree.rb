@@ -4,6 +4,7 @@ class DropSpreeMailMethods < ActiveRecord::Migration
     drop_table :spree_mail_methods
   end
 
+
   def down
     create_table(:spree_mail_methods) do |t|
       t.string :environment

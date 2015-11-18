@@ -4,6 +4,7 @@ class AddUpdatedAtToSpreeStates < ActiveRecord::Migration
     add_column :spree_states, :updated_at, :datetime
   end
 
+
   def down
     remove_column :spree_states, :updated_at
   end

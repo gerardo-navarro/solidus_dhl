@@ -33,6 +33,7 @@ class RemoveUnnecessaryIndexes < ActiveRecord::Migration
     safe_remove_index :spree_zones, :default_tax
   end
 
+
   def down
     safe_add_index :spree_credit_cards, :address_id
     safe_add_index :spree_gateways, :active
@@ -61,11 +62,13 @@ class RemoveUnnecessaryIndexes < ActiveRecord::Migration
     safe_add_index :spree_zones, :default_tax
   end
 
+
   private
 
   def safe_remove_index(table, column)
     remove_index(table, column) if index_exists?(table, column)
   end
+
 
   def safe_add_index(table, column)
     add_index(table, column) if column_exists?(table, column)

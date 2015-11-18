@@ -9,7 +9,7 @@ class CreateSpreeShippingRates < ActiveRecord::Migration
       t.timestamps null: true
     end
     add_index(:spree_shipping_rates, [:shipment_id, :shipping_method_id],
-              :name => 'spree_shipping_rates_join_index',
+              :name   => 'spree_shipping_rates_join_index',
               :unique => true)
 
     # Spree::Shipment.all.each do |shipment|
@@ -17,6 +17,7 @@ class CreateSpreeShippingRates < ActiveRecord::Migration
     #   shipment.add_shipping_method(shipping_method, true)
     # end
   end
+
 
   def down
     # add_column :spree_shipments, :shipping_method_id, :integer

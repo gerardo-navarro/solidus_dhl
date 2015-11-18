@@ -8,6 +8,7 @@ class MigrateDeletedStoreCreditsToInvalidated < ActiveRecord::Migration
     end
   end
 
+
   def down
     # intentionally blank
   end

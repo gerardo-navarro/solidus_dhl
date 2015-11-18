@@ -4,6 +4,7 @@ class AddDisplayOnToSpreePaymentMethods < ActiveRecord::Migration
     add_column :spree_payment_methods, :display_on, :string
   end
 
+
   def self.down
     remove_column :spree_payment_methods, :display_on
   end
