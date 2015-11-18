@@ -66,62 +66,6 @@ Style/CommentIndentation:
   Exclude:
     - 'spec/controllers/spree/admin/shipment_handler/dhl_shipment_controller_spec.rb'
 
-# Offense count: 13
-# Cop supports --auto-correct.
-Style/EmptyLines:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'app/controllers/spree/admin/shipment_handler/dhl_shipment_controller.rb'
-    - 'lib/dhl/return/api.rb'
-    - 'spec/controllers/spree/admin/shipment_handler/dhl_shipment_controller_spec.rb'
-    - 'spec/factories/spree_address_factory.rb'
-    - 'spec/spec_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'spec/solidus_dhl/client/spree_address_converter_spec.rb'
-
-# Offense count: 17
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'config/routes.rb'
-    - 'solidus_dhl.gemspec'
-    - 'spec/controllers/spree/admin/shipment_handler/dhl_shipment_controller_spec.rb'
-    - 'spec/factories/spree_address_factory.rb'
-    - 'spec/routes/dhl_shipment_routes_spec.rb'
-    - 'spec/solidus_dhl/client/spree_address_converter_spec.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'app/controllers/spree/admin/shipment_handler/dhl_shipment_controller.rb'
-    - 'lib/dhl/return/api.rb'
-    - 'lib/solidus_dhl/client/spree_address_converter.rb'
-    - 'lib/solidus_dhl/engine.rb'
-    - 'lib/solidus_dhl/errors/solidus_dhl_error.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/EmptyLinesAroundMethodBody:
-  Exclude:
-    - 'app/controllers/spree/admin/shipment_handler/dhl_shipment_controller.rb'
-    - 'lib/dhl/return/api.rb'
-    - 'lib/solidus_dhl/client/spree_address_converter.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundModuleBody:
-  Exclude:
-    - 'app/controllers/spree/admin/shipment_handler/dhl_shipment_controller.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
@@ -168,29 +112,6 @@ Style/LeadingCommentSpace:
 Style/RedundantBegin:
   Exclude:
     - 'lib/dhl/return/api.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/SignalException:
-  Exclude:
-    - 'app/controllers/spree/admin/shipment_handler/dhl_shipment_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SingleSpaceBeforeFirstArg:
-  Exclude:
-    - 'lib/solidus_dhl/engine.rb'
-
-# Offense count: 18
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleInsidePipes, SupportedStyles.
-Style/SpaceAroundBlockParameters:
-  Exclude:
-    - 'app/controllers/spree/admin/shipment_handler/dhl_shipment_controller.rb'
-    - 'lib/dhl/return/api.rb'
-    - 'spec/controllers/spree/admin/shipment_handler/dhl_shipment_controller_spec.rb'
-    - 'spec/factories/spree_address_factory.rb'
 
 # Offense count: 6
 # Cop supports --auto-correct.

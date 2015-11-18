@@ -8,6 +8,5 @@ module SolidusDhl
       g.assets false
       g.helper false
     end
-
   end
 end

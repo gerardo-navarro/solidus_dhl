@@ -22,8 +22,6 @@ module Dhl
         @format        = options[:format]
         @delivery_name = config[:delivery_name]
         @portal_id     = config[:portal_id]
-
-
       end
 
 
@@ -52,7 +50,7 @@ module Dhl
               end
             end
           end
-          r      = result.to_hash[:book_label_response]
+          r = result.to_hash[:book_label_response]
 
           File.open("#{Rails.root}/public/spree/return/#{order_id}.pdf", 'wb') do |f|
             f.write(Base64.decode64(r[:label]))
@@ -61,7 +59,6 @@ module Dhl
         rescue Savon::Error => error
           raise error
         end
-
       end
 
 
@@ -80,4 +77,3 @@ module Dhl
     end
   end
 end
-

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+# Adding all gem dependencies defined in the gemspec
 gemspec
 
 group :development, :test do
@@ -17,5 +17,4 @@ group :development, :test do
   gem 'simplecov-rcov'
 
   gem 'rubocop', require: false
-
 end

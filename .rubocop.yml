@@ -6,3 +6,19 @@ AllCops:
     - spec/dummy/**/*
 Documentation: # Disabling documentation cop
   Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+Style/EmptyLines:
+  Enabled: false
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: false
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+Style/EmptyLinesAroundMethodBody:
+  Enabled: false
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+

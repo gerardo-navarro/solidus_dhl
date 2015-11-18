@@ -1,19 +1,15 @@
 module SolidusDhl
   module Errors
     class SolidusDhlError
-
       attr_reader :message
-
 
       def initialize(message)
         @message = message
       end
 
-
       def status
         500
       end
-
 
       def to_hash
         {
@@ -23,7 +19,6 @@ module SolidusDhl
             }
         }
       end
-
 
       def to_json(*)
         to_hash.to_json

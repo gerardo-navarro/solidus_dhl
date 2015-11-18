@@ -6,4 +6,3 @@ unless Rails.env.test?
                       'DHL_INTRASHIP_SIGNATURE',
                       'DHL_INTRASHIP_EKP')
 end
-

@@ -12,7 +12,7 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
   describe "GET #create_dhl_shipment" do
 
     subject { get :create_dhl_shipment, { order_id: Spree::Order.first.id } }
-    
+
     context "with working internet connection" do
 
       before(:each) do
@@ -27,8 +27,8 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
           subject
           expect(response).to have_http_status(:redirect)
           expect(response).to redirect_to SHIPMENT_LABEL_URL
-          
-          Spree::Order.first.shipments.each do | order_shipment |
+
+          Spree::Order.first.shipments.each do |order_shipment|
             expect(order_shipment.dhl_label).to eq SHIPMENT_LABEL_URL
           end
 
@@ -39,7 +39,7 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
           @order.shipments << FactoryGirl.create(:shipment)
           @order.shipments << FactoryGirl.create(:shipment)
 
-          expect(DHL_Intraship).to receive(:createShipmentDD) do | arg |
+          expect(DHL_Intraship).to receive(:createShipmentDD) do |arg|
             shipment = arg
 
             expect(shipment.shipment_items).to be_kind_of Array
@@ -82,9 +82,7 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
 
   # config/initializer/dhl_intraship_client_options.rb does not create the constant when it is run in the test mode. This means that we need to create it. Because we are mocking the constant we do not care how it is instantiated
   ::DHL_Intraship = Object.new
-  
   def mock_dhl_intraship_client
-
     allow(DHL_Intraship).to receive(:createShipmentDD).with(kind_of(Dhl::Intraship::Shipment)).and_return({
       label_url: SHIPMENT_LABEL_URL,
       shipment_number: 'TEST412761521204'
@@ -97,6 +95,5 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
       label_url: SHIPMENT_LABEL_URL,
       shipment_number: 'TEST412761521204'
     })
-  end  
-
+  end
 end

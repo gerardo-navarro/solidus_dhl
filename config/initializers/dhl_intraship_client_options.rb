@@ -32,5 +32,3 @@ options_return = {
 unless Rails.env.test?
   ::DHL_Return = Dhl::Return::API.new(config_return, options_return)
 end
-
-

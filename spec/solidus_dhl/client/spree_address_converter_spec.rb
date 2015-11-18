@@ -51,7 +51,6 @@ RSpec.describe SolidusDhl::Client::SpreeAddressConverter do
     expect(address.city).to_not be_nil
   end
 
-
   def general_assertions(address)
     expect(address).to_not be_nil
     expect(address).to be_a Dhl::Intraship::PersonAddress

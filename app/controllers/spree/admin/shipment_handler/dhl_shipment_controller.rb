@@ -1,7 +1,6 @@
 module Spree
   module Admin
     module ShipmentHandler
-
       class DhlShipmentController < Spree::Admin::BaseController
         # rescue_from ::SolidusDhl::Errors::SolidusDhlError, with: :render_error
 
@@ -15,7 +14,7 @@ module Spree
           sender.senderName1        = ship_address.firstname
           sender.senderName2        = ship_address.lastname
           sender.senderStreet       = ship_address.address1
-          sender.senderStreetNumber = "0" #TODO needs to be parsed out of address1
+          sender.senderStreetNumber = '0' #TODO needs to be parsed out of address1
           sender.senderCity         = ship_address.city
           sender.senderPostalCode   = ship_address.zipcode
           sender.senderContactPhone = ship_address.phone
@@ -25,7 +24,6 @@ module Spree
 
 
         def create_dhl_shipment
-
           order_id = params[:order_id]
           @order   = Spree::Order.find(order_id)
 
@@ -54,7 +52,7 @@ module Spree
 
           # Use can use multiple parcels per shipment. Note that the weight
           # parameter is in kg and the length/height/width in cm
-          shipments = @order.shipments.map do | order_shipment |
+          shipments = @order.shipments.map do |order_shipment|
             # The order shipment is not necessary at the moment, but it will be in future
             Dhl::Intraship::ShipmentItem.new(weight: 3, length: 120, width: 60, height: 60)
           end
@@ -67,7 +65,7 @@ module Spree
 
           result = DHL_Intraship.createShipmentDD(shipment)
 
-          raise 'label_url not returned' unless result[:label_url]
+          fail 'label_url not returned' unless result[:label_url]
 
           @order.shipments.each do |shipment|
             shipment.update({
@@ -78,25 +76,20 @@ module Spree
           end
 
           redirect_to result[:label_url]
-
         end
 
-
         def get_dhl_shipment_label
-
           order_id = params[:order_id]
           @order   = Spree::Order.find(order_id)
 
           redirect_to :edit unless @order.shipments.first.dhl_label
 
           redirect_to @order.shipments.first.dhl_label
-
         end
 
         def render_error(error)
           render(json: error, status: error.status)
         end
-
       end
     end
   end
