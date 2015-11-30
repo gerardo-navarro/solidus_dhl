@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
 
   # -------------------------------------------- Backend --------------------------------------------
   # s.add_dependency "solidus", "~> 1.0"
-  s.add_dependency "solidus_core", "~> 1.0"
-  s.add_dependency "solidus_backend", "~> 1.0"
+  s.add_dependency "solidus_core", "~> 1.1"
+  s.add_dependency "solidus_backend", "~> 1.1"
   s.add_dependency "solidus_auth_devise", "~> 1.2"
-  s.add_dependency "solidus_sample", "~> 1.0"
+  s.add_dependency "solidus_sample", "~> 1.1"
   s.add_dependency 'dhl-intraship'
 
   # -------------------------------------------- Deployment --------------------------------------------
