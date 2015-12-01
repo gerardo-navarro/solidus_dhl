@@ -14,7 +14,7 @@ FactoryGirl.define do
     country { |address| address.association(:country_germany) }
   end
 
-  factory :solidus_dhl_ship_address_with_umlauts, parent: :address do
+  factory :solidus_dhl_ship_address_with_umlauts, parent: :solidus_dhl_ship_address do
     address1 'Krähenstieg 2'
     address2 'Dachgeschoss Rechts'
     city 'Madgeburg'
@@ -22,7 +22,7 @@ FactoryGirl.define do
     state { |address| address.association(:state_schleswig_holstein) }
   end
 
-  factory :solidus_dhl_ship_address_with_letter_in_house_number, parent: :address do
+  factory :solidus_dhl_ship_address_with_letter_in_house_number, parent: :solidus_dhl_ship_address do
     address1 'Birkhahnkamp 19b'
     city 'Norderstedt'
     zipcode '22846'

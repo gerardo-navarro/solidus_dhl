@@ -63,7 +63,29 @@ module Spree
                                            shipment_items:   shipments,
                                            shipment_date:    Date.today)
 
-          result = DHL_Intraship.createShipmentDD(shipment)
+          begin
+            result = DHL_Intraship.createShipmentDD(shipment)
+
+          rescue Savon::SOAP::Fault => soap_exception
+            error = {
+              error: %(
+                        SOAP request error when requesting DHL Intraship API: #{soap_exception.message}
+                        Probably, some wrong or missing field value inside the shipment object: #{shipment.inspect}
+                        Contact the customer and fix the ship address manually.
+                      )
+            }
+            render json: error, status: 500
+
+          rescue StandardError => e
+            error = {
+              error: %(
+                        Error when requesting DHL Intraship API: #{e.message}
+                        Shipment object looked like this: #{shipment.inspect}
+                      )
+            }
+            render json: error, status: 500
+            return
+          end
 
           fail 'label_url not returned' unless result[:label_url]
 

@@ -1,13 +1,13 @@
 PATH
   remote: .
   specs:
-    solidus_dhl (0.0.2)
+    solidus_dhl (0.0.4)
       dhl-intraship
       figaro (~> 1.1.1)
-      solidus_auth_devise (~> 1.2)
-      solidus_backend (~> 1.1)
-      solidus_core (~> 1.1)
-      solidus_sample (~> 1.1)
+      solidus_auth_devise (~> 1.0)
+      solidus_backend (~> 1.0)
+      solidus_core (~> 1.0)
+      solidus_sample (~> 1.0)
 
 GEM
   remote: https://rubygems.org/

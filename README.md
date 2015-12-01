@@ -36,11 +36,7 @@ Go to any order in `localhost:3000/admin/orders`. On the right corner you will f
 
 ## Testing this gem ##
 
- - `cd spec/dummy`
- - `cp config/application.yml.default config/application.yml`
- - `RAILS_ENV=test bundle exec rake db:test:prepare`
- - `bundle exec rake db:test:prepare`
- - `cd ../..`
+ - `sh setup_test_env.sh`
  - `bundle exec rspec`
 
-You can look into `circle.yml` to see how it is tested on the CI server.
+You can look into [`setup_test_env.sh`](https://github.com/gerardo-navarro/solidus_dhl/blob/master/setup_test_env.sh) to see how it is tested on the CI server.

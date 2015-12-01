@@ -64,6 +64,23 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
           expect(response).to have_http_status(:error)
         end
       end
+
+      context '(with not correct ship address in order)' do
+
+        before(:each) do
+          @order = FactoryGirl.create :order_ready_to_ship
+          @order.update(ship_address: FactoryGirl.create(:solidus_dhl_ship_address, address1: 'Norderstraße'))
+        end
+
+        it 'fails gracefully because soap request wrong' do
+
+          expect(DHL_Intraship).to receive(:createShipmentDD).and_raise(instance_double(Savon::SOAP::Fault, message: "Invalid fieldlength in element 'StreetNumber'. Please refer to documentation."))
+
+          subject
+          expect(response).to have_http_status(:error)
+        end
+
+      end
     end
 
     context "without broken internet connection" do
@@ -75,6 +92,19 @@ RSpec.describe Spree::Admin::ShipmentHandler::DhlShipmentController do
 
     #     expect(response).to have_http_status(:error)
     #   end
+
+        # before(:each) { @order = FactoryGirl.create :order_ready_to_ship }
+
+        # it 'response HTTP_STATUS.redirect' do
+        #   subject
+        #   expect(response).to have_http_status(:redirect)
+        #   expect(response).to redirect_to SHIPMENT_LABEL_URL
+
+        #   Spree::Order.first.shipments.each do |order_shipment|
+        #     expect(order_shipment.dhl_label).to eq SHIPMENT_LABEL_URL
+        #   end
+
+        # end
 
     end
 
